@@ -1,0 +1,636 @@
+/* Base Styles */
+:root {
+    --color-primary: #8B4513;
+    --color-secondary: #D2691E;
+    --color-text: #333;
+    --color-bg: #fff;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--color-text);
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: forum;
+    background-color: #fafafa;
+    font-size: 1.4rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    font-size: 1.2rem;
+}
+
+/* Loader */
+.loader {
+    position: fixed;
+    inset: 0;
+    background: var(--color-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+
+.loader-logo {
+    width: 100px;
+    height: auto;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Navigation */
+.nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    background: transparent;
+    transition: var(--transition);
+    font-family: forum;
+    font-size: 1.3rem;
+}
+
+.nav.scrolled {
+    background: var(--color-bg);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-logo {
+    height: 100px;
+    width: auto;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-menu a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-menu a:hover {
+    color: var(--color-primary);
+}
+
+/* Hero Section */
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('pics/new.jpg');
+    background-position: center;
+    background-size: cover; /* Ensure the image covers the entire container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    object-fit: cover;
+    animation: zoom-bg 30s infinite; /* Apply the zoom animation */
+}
+
+/* Keyframes for the zoom effect */
+@keyframes zoom-bg {
+    0% {
+        background-size: 90%;
+    }
+    50% {
+        background-size: 110%;
+    }
+    100% {
+        background-size: 90%;
+    }
+}
+
+.hero-content h1 {
+    font-size: 6rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    opacity: 0.9;
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-size: 1.0rem;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 50px;
+    background: white;
+    margin-top: 1rem;
+    animation: scroll 2s infinite;
+}
+
+@keyframes scroll {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    50.1% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+
+
+
+
+
+/* About Section */
+.about {
+    padding: 8rem 0;
+    background: var(--color-bg);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 4rem;
+    transition: transform 0.3s ease, color 0.3s ease; 
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Products Section */
+.products {
+    padding: 8rem 0;
+    background: #f9f9f9;
+    font-size: 1.0rem;
+    
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    
+}
+
+.product-card {
+    position: relative;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.product-image {
+    height: 250px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-content {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.product-card h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.product-card p {
+    color: #666;
+    margin: 1rem 0;
+}
+
+
+/* View Products Button */
+.view-products-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.view-products-btn:hover {
+    background-color: #388E3C;
+    color: #fff;
+}
+
+/* Why Us Section */
+.why-us {
+    padding: 8rem 0;
+    background: var(--color-bg);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 10px;
+    background: #f9f9f9;
+    transition: var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    margin-bottom: 1rem;
+}
+
+/* Contact Section */
+.contact {
+    padding: 8rem 0;
+    background: #f9f9f9;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 4rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.btn {
+    background: var(--color-primary);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background: var(--color-secondary);
+}
+
+.contact-info h3 {
+    margin-bottom: 1.5rem;
+}
+
+.contact-details {
+    margin-top: 2rem;
+}
+
+.contact-details p {
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+.footer {
+    background: rgb(121, 121, 120);
+    color: white;
+    padding: 4rem 0 2rem;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.footer-logo {
+    height: 150px;
+    width: auto;
+    color: #ffffff;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-social a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.footer-social a:hover {
+    color: var(--color-primary);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    .nav-toggle span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: var(--color-text);
+        margin: 5px 0;
+        transition: var(--transition);
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        flex-direction: column;
+        background: white;
+        width: 100%;
+        text-align: center;
+        transition: var(--transition);
+        padding: 2rem 0;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .about-grid,
+    .products-grid,
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* General Styling  Manufacture */
+/* General Styling */
+h1.highlight {
+    color: #b58d0b;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease, transform 0.3s ease; /* Add transition */
+}
+
+h1.highlight:hover {
+    color: #d4a60b; /* Change color on hover */
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+h2.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1a2e4b;
+    transition: color 0.3s ease, transform 0.3s ease; /* Add transition */
+}
+
+h2.title:hover {
+    color: #274a6b; /* Change color on hover */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+p.intro-text {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 3rem;
+    max-width: 70ch;
+    transition: color 0.3s ease; /* Add transition */
+}
+
+p.intro-text:hover {
+    color: #444; /* Change color on hover */
+}
+
+/* Process Steps */
+.process-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.process-step {
+    padding-bottom: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition */
+}
+
+.process-step:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+}
+
+.step-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #1a2e4b;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease; /* Add transition */
+}
+
+.step-title:hover {
+    color: #274a6b; /* Change color on hover */
+}
+
+.step-description {
+    font-size: 1.2rem;
+    color: #777;
+    line-height: 1.5;
+    transition: color 0.3s ease; /* Add transition */
+}
+
+.step-description:hover {
+    color: #555; /* Change color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .process-steps {
+        grid-template-columns: 1fr;
+    }
+
+    h2.title {
+        font-size: 2rem;
+    }
+}
+
+/* Intro Text Section */
+.intro-texttwo {
+    max-width: 800px; 
+    margin: 4rem auto; /* Center the element horizontally and add top/bottom margin */
+    padding: 2rem; /* Add padding for inner spacing */
+    text-align: center; /* Center the text inside the element */
+    background-color: #fff; /* Set background color */
+    box-shadow: 0 4px 8px rgba(119, 117, 117, 0.089); /* Add a subtle shadow */
+    border-radius: 8px; /* Round the corners */
+    font-size: 1.2rem; /* Set a reasonable font size */
+}
+
+.intro-texttwo h2.title {
+    font-size: 2.5rem; /* Increase the font size for the title */
+    font-weight: 700; /* Make the title bold */
+    margin-bottom: 1.5rem; /* Add space below the title */
+    color: var(--color-primary); /* Use the primary color for the title */
+    
+}
+
+.intro-texttwo p {
+    font-size: 1.3rem; /* Set a consistent font size for the paragraph */
+    color: #000000; /* Use a softer color for the text */
+    margin-bottom: 3rem; /* Add space below the paragraph */
+    line-height: 1.6; /* Improve readability with increased line height */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .intro-texttwo {
+        padding: 1rem; /* Adjust padding for smaller screens */
+    }
+
+    .intro-texttwo h2.title {
+        font-size: 2rem; /* Adjust the font size for smaller screens */
+    }
+
+    .intro-texttwo p {
+        font-size: 1.1rem; /* Adjust the font size for smaller screens */
+    }
+
+   
+}
