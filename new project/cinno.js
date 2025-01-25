@@ -10,6 +10,3 @@ window.addEventListener('scroll', () => {
     }
     lastScrollTop = scrollTop;
 });
-fewfwfewf
-wefwefwefwfwefwefw
-wefwefwfwefwf
